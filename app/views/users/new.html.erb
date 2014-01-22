@@ -1,0 +1,83 @@
+<style>
+.myform{
+margin:0 auto;
+/*width:600px; */
+/* padding:14px; */
+}
+#stylized label{
+display:block;
+/*font-weight:bold;*/
+text-align:left;
+width:140px;
+float:left;
+}
+#stylized input{
+/*float:left; */
+font-size:12px;
+padding:2px 2px;
+border:solid 1px #aacfe4;
+width:250px;
+height:20px;
+margin:2px 0 20px 10px;
+}
+#stylized submit {
+clear:both;
+margin-left:150px;
+width:85px;
+height:31px;
+/*background:#666666 url(img/button.png) no-repeat; */
+text-align:center;
+line-height:31px;
+color:#FFFFFF;
+font-size:11px;
+font-weight:bold;
+}
+</style>
+<div id="stylized" class="myform">
+
+
+	<h1>Users#new</h1>
+
+	<div>
+	<% if flash[:state] == true %>
+		<p><%= flash[:alert] %></p>
+	<% else  %>	
+		<% @user.errors.full_messages.each do |error| %>
+			<p><%= error %></p>	
+		 <% end %>	
+	<% end %>
+	</div>
+
+	<%= form_for @user  do |user| %>		
+		<div>
+			<%= user.label(:first_name, "First Name") %>
+			<%= user.text_field(:first_name) %>
+		</div>
+		<div>
+			<%= user.label(:last_name, "Last Name") %>
+			<%= user.text_field(:last_name) %>
+		</div>
+		<div>
+			<%= user.label(:emal, "Email") %>
+			<%= user.email_field(:emal) %>
+		</div>
+		<div>
+			<%= user.label(:password, "Password") %>
+			<%= user.text_field(:password) %>
+		</div>
+		<div>
+			<%= user.label(:password_confirmation, "Confirm_Password") %>
+			<%= user.text_field(:password_confirmation) %>
+		</div>
+		<div>
+			<%= user.label(:role, "Role") %>
+			<%= user.text_field(:role) %>
+		</div>
+		<div>
+			<%= submit_tag "Register" %>
+		</div>
+	<% end %>
+
+</div>
+
+

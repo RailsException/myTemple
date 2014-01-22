@@ -1,4 +1,20 @@
 MyTemple::Application.routes.draw do
+
+ resources :Sessions, :only => [:new, :create, :destroy]
+  match '/login' =>  "Sessions#login"
+  match '/logout' => "Sessions#destroy"
+
+ resources :users
+  match '/register' => "users#new"
+
+  get "donars/listdonars"  
+  post "fgridreturns/getalldonars"
+
+  get "home/index"
+  get "home/aboutus"
+  root :to => 'home#index'
+  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

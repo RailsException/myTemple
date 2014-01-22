@@ -1,0 +1,52 @@
+<%= session[:user_role] %>
+<table id="flex1" style="display:none"></table>
+<script type="text/javascript">
+$("#flex1").flexigrid({
+  url: '/fgridreturns/getalldonars',
+  dataType: 'json',
+  colModel : [   
+    {display: 'First Name', name : 'fname', width : 180, sortable : true, align: 'center',process: alertcolumn},
+    {display: 'Last Name', name : 'lname', width : 180, sortable : true, align: 'left'},
+    {display: 'Mobile', name : 'mobile', width : 120, sortable : false, align: 'left'},
+    {display: 'Email', name : 'email', width : 180, sortable : false, align: 'left', hide: false}
+    ],
+  searchitems : [
+    {display: 'First Name', name : 'fname'},
+    {display: 'Last Name', name : 'lname', isdefault: true}
+    ],
+  sortname: "fname",
+  sortorder: "asc",
+  usepager: true,
+  title: 'Donars',
+  useRp: true,
+  rp: 15,
+  showTableToggleBtn: true,
+  width: 980,
+  onSubmit: addFormData,
+  height: 400
+});
+
+//This function adds paramaters to the post of flexigrid. You can add a verification as well by return to false if you don't want flexigrid to submit     
+ 
+function addFormData(){
+  //passing a form object to serializeArray will get the valid data from all the objects, but, if the you pass a non-form object, you have to specify the input elements that the data will come from
+  var dt = $('#sform').serializeArray();
+  $("#flex1").flexOptions({params: dt});
+  return true;
+}
+ 
+  function alertcolumn(celDiv,id) {
+    $(celDiv).click(function(){
+       document.location="/donars/"+"showdonar/"+id;       
+      //<cfoutput>document.location="?id=transaction&transaction_id="+ $(this).parent().parent().children().children().html();</cfoutput>
+    });
+  };
+
+ /*   
+	$('#sform').submit(function (){
+	  $('#flex1').flexOptions({newp: 1}).flexReload();
+	  return false;
+	});
+*/
+
+</script>

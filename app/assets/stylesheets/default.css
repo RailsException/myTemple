@@ -1,0 +1,152 @@
+body {
+    background-color: #FFFFFF;
+    color: #313131;
+    font-family: arial;
+    font-size: 12px;
+    margin: 0;
+}
+#wrapper {
+    background: url("/assets/default/bg_footer.jpg") repeat-x scroll left bottom #FFFFFF;
+    float: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 980px;
+}
+#wrapper .spacer {
+    clear: both;
+    font-size: 1px;
+    height: 1px;
+    line-height: 1px;
+    width: 100%;
+}
+
+#main_layer {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 980px;
+}
+
+#header {
+    height: 175px;
+    width: 980px;
+}
+
+#section1 {
+    height: 94px;
+}
+#user_login {
+    float: right;
+    padding-top: 0;
+    text-align: right;
+}
+.campus {
+    display: inline;
+    margin-left: 6px;
+}
+#user_login a {
+    color: #FF0000;
+    display: inline-block;
+    font-size: 12px;
+    text-decoration: none;
+}
+#section2 {
+    float: left;
+    height: 30px;
+    width: 100%;
+}
+
+
+#body {
+    min-height: 650px;
+}
+
+
+#footer {
+    color: #FFFFFF;
+    height: 160px;
+    margin-top: 40px;
+}
+#footer_section1 {
+    float: left;
+    font-size: 12px;
+    margin-left: 20px;
+    width: 350px;
+}
+#footer_section2 {
+    float: right;
+    font-size: 10px;
+    margin-right: 20px;
+    text-align: left;
+}
+
+.heading {
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 5px 0;
+}
+.info {
+    margin-bottom: 5px;
+    width: 290px;
+}
+#enquiry {
+    display: block;
+}
+p {
+    clear: both;
+}
+
+#footer_section1 input[type="text"] {
+    border: medium none;
+    color: #ACACAC;
+    display: block;
+    float: left;
+    height: 41px;
+    line-height: 2.5em;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: 275px;
+}
+#btn_go {
+    background-color: #CB2802;
+    border: 1px solid #333333;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: bold;
+    height: 41px;
+    margin-left: 5px;
+    width: 43px;
+}
+
+#footer_section2 ul {
+    float: right;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#footer_section2 ul li {
+    float: left;
+}
+#footer_section2 ul li a {
+    color: #FFFFFF;
+    margin-left: 10px;
+    padding: 0;
+    text-decoration: none;
+}
+span.icon {
+    background: url("/assets/default/social.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+    display: block;
+    height: 29px;
+    margin-left: 11px;
+    width: 29px;
+}
+
+span.icon.mail {
+    background-position: 0 0;
+}
+span.icon.rss {
+    background-position: -29px 0;
+}
+span.icon.twitter {
+    background-position: -58px 0;
+}

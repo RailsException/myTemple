@@ -1,0 +1,57 @@
+<% cname = controller_name %>
+<div id="wrapper">
+<div id="main_layer">
+<div id="header">
+  <div id="menu">
+    <div id='cssmenu'>
+      <ul>
+        <li <% if (cname == "home") then %>
+            class='active'
+            <% else %> class='last' <% end %>> <a href='index.html'><span>Home</span></a></li>
+        <li <% if (cname == "aboutus") then %>class='active' <% else %> class='has-sub' <% end %> ><a href='#'><span>About ICCT</span></a>
+          <ul>
+            <li><a href='#'><span>Link 1</span></a></li>
+            <li><a href='#'><span>Link 2</span></a></li>
+            <li class='last'><a href='#'><span>Link 3</span></a></li>
+          </ul>
+        </li>
+        <li <% if (cname == "services") then %>class='active' <% else %> class='has-sub' <% end %>><a href='#'><span>Services</span></a>
+          <ul>
+            <li><a href='#'><span>Link 1</span></a></li>
+            <li class='last'><a href='#'><span>Link 2</span></a></li>
+          </ul>
+        </li>
+        <li <% if (cname == "contact") then %>class='active' <% else %>class='last' <% end %>><a href='#'><span>Contact</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="section1">
+    <div id="user_login">
+      <div id="top_home" >
+        <% if !session[:user_id] %>
+          <%= flash[:alert]  %>
+            <form action="/login" method="post" autocomplete="off">
+              <div class="campus">
+                <a class="loginlinks" href="/register">Register</a> &nbsp;&nbsp;
+                <a class="loginlinks" href="/forgotpassword">Forgot Password ?</a>
+                Username:
+                <input type="text" name="user[email]">
+                Password:
+                <input type="password" name="user[pwd]">
+              </div>
+              <input class="submit_image" width="36" type="image" height="17" value="submit" name="submit" src="/assets/default/loginbutton.gif">
+            </form>
+          <% else %>
+            <%= link_to "logout", logout_path %>
+          <% end %>
+      </div>
+    </div>
+
+    <div id="logo">
+      <!---<img src="/assets/default/logo.jpg" alt="ICCT Logo" />--->
+    </div>
+    <div class="spacer"></div>
+  </div> <!--- id = section1 --->
+  <div class="spacer"></div>
+</div> 	<!--- header --->
