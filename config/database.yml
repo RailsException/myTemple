@@ -19,7 +19,17 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: postgresql 
+  database: myTemple 
+  username: deploy 
+  password: MyP4ssW0rd 
+  host: ec2-172-18-139-19.us-west-1.compute.amazonaws.com 
+  reconnect: true 
+
+slave:
+  adapter: postgresql 
+  database: myTemple 
+  username: deploy 
+  password: MyP4ssW0rd 
+  host: ip-192-168-47-113.us-west-1.compute.internal 
+  reconnect: true 
