@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	require 'digest/md5'
   attr_accessible  :emal, :first_name, :last_name, :password,:password_confirmation, :role
+  has_many :Donars
 
   before_save :ecrypt_password, :convert_downcase
 
@@ -17,7 +18,7 @@ class User < ActiveRecord::Base
       self.emal = emal.downcase
   end
   def self.validate_login (email,password)
-    user = User.find_by_emal (email.downcase)
+    user = User.find_by_emal(email.downcase)
     if user && user.password == Digest::MD5.hexdigest(password) 
       user
     else

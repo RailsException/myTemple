@@ -11,15 +11,23 @@ class ApplicationController < ActionController::Base
   		flash[:status]  = TRUE
   	end 
   end
+  
+  def check_adminaccess
+    if session[:user_id]
+      if  (session[:user_role]  != "Admin") 
+        flash[:alert] = "You don't have access to view, Please contact Administrator."
+        redirect_to home_index_path         
+      end
+    end  
+  end
+
+
   def check_adminorpriest
     if session[:user_id]
-        session[:user_role] = "Admin"
-      if  (session[:user_role]  != "Admin1") && (session[:user_role]  != "Priest")
-       redirect_to home_index_path         
-      end
-   else
-      redirect_to home_index_path   
-
+      if  (session[:user_role]  != "Admin") && (session[:user_role]  != "Priest")
+         flash[:alert] = "You don't have access to view, Please contact Administrator."
+        redirect_to home_index_path         
+      end 
     end  
   end
 

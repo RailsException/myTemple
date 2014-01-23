@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :check_login
+  before_filter :check_login, :check_adminaccess
   def index
   	@users = User.all
   end
@@ -22,7 +22,6 @@ class UsersController < ApplicationController
       render action: "new" 
   	end
   	#render json: @user.errors
-   	
     
   end 
 
