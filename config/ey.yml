@@ -1,3 +1,1 @@
-environments:
-  myTempleProd:
-	precompile_assets: true  # precompile assets
+recompile_assets: true  # precompile assets
